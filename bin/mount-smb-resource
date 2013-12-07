@@ -1,0 +1,9 @@
+#!/bin/bash
+SMB_RESOUCE="//10.10.0.10/bolsa"
+USER="bolsa"
+PASSWORD="bolsapass"
+MOUNT_POINT="/mnt/samba"
+UID_OWNER="1000"
+
+mount -t cifs -ousername=${USER},password=${USER},uid=${UID_OWNER} ${MOUNT_POINT}
+

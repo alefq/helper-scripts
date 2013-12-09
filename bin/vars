@@ -1,6 +1,0 @@
-#!/bin/bash
-#
-#Global vars used on several script 
-#
-LOGS="/var/log/syslog /var/log/aut.log"
-export LOGS

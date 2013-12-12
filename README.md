@@ -4,7 +4,13 @@ helper-scripts
 Several scripts to help a Unix system administrator or desktop power user
 Quick setup:
 * Clone the repository (recommended location /opt/helper-scripts)
-* Go to the cloned directory
+
+```
+$ cd /opt
+$ git clone https://github.com/alefq/helper-scripts.git
+```
+
+ Go to cloned directory
 
 ```
 $ cd /opt/helper-scripts/bin

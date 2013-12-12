@@ -35,6 +35,7 @@ $ chmod +x *.sh
 ```
 
 * Add above lines to the end of your 
+* [List of generated commands](https://github.com/alefq/helper-scripts/blob/master/bin/populate-basic-desktop-commands.sh#L15)
 
 ```
 $HOME/.bashrc

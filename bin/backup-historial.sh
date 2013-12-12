@@ -12,7 +12,8 @@ if [ ! -d $DIR ]; then
 fi
 cp -vf $HOME/.bash_history $DIR/history-${STAMP}
 cd $DIR
-cat * | sort | uniq   > /tmp/history-global-$UID
+echo "" > /tmp/history-global-$UID
+chmod -v 0600 /tmp/history-global-$UID
+cat * | sort | uniq   >> /tmp/history-global-$UID
 mv -vf /tmp/history-global-$UID .
-
 

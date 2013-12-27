@@ -16,6 +16,11 @@ COMMANDS="filemanager imageviewer archivecompressor browser \
 	mailcomposer torrentmanager texteditor diffmanager imageeditor \
 	terminal videoplayer musicplayer"
 CONF_DIR="../conf/command-by-distro"
+
+#To figure it out if there's gnome session or mate
+if [ "$GDMSESSION" != "" ]; then
+	$this_distro=${this_distro}-{$GDMSESSION}	
+fi
 for cmd in ${COMMANDS}; do
 	SCRIPT="${cmd}.sh"
 	echo "#!/bin/bash" > ${SCRIPT}

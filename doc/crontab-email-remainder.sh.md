@@ -29,6 +29,6 @@ REMAINDERS_DIR=/home/shares/bolsa/mandua
 # anual
 55 6    2 1 *   $HS_HOME/bin/crontab-email-remainder.sh $REMAINDERS_DIR/anual
 ```
-That's it. I hope you find this script helpful. And remember, github is your friend fork and pull requests are welcome.
+That's it. I hope you find this script helpful. And remember, github is your friend; fork and pull requests are welcome.
 
 

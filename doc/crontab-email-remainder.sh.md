@@ -1,4 +1,4 @@
-# Cronero-email-remainder.sh
+# crontab-email-remainder.sh
 
 As its names suggests, this is a simple script that uses `crond` to send emails remainding something at some fixed periods. If you look at the crontab lines, they can be easily extended. You need to follow this steps to make it work:
 

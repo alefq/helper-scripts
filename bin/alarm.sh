@@ -7,9 +7,10 @@ if [ $# -eq 2 ]; then
 	$0 $1 $2 BG &
 else 
 	if [ $# -eq 3 ] && [ $3 == 'BG' ]; then
+		echo ""
 		echo -n "Alarm will popup on: "
 		date -d ${1}minutes
-		echo ""
+		echo -e "\n"
 		sleep $1m
 		while [ 1 ]; do
 			wall "$2"

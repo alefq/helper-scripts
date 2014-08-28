@@ -9,5 +9,7 @@ if [ ! -d /tmp/.weather-$UID ]; then
 fi
 WEATHER=/tmp/.weather-$UID/weather-$STAMP.log
 curl -s http://weather.noaa.gov/pub/data/observations/metar/stations/${CITY_CODE}.TXT  > $WEATHER
-tail -1 $WEATHER | awk '{print $6}' | awk -F/ '{print $1}'
+# I can't finid a pattern on noaa output
+# ad-hoc temperature parsing
+tail -1 $WEATHER | awk -F/ '{print $1} ' | awk '{print $NF} '
 

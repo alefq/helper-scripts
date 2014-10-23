@@ -23,7 +23,7 @@ if [ $# - ne 2 ]; then
 fi
 
 DIR_TO_ROTATE=$2
-OWNER="`stat -c '%U' DIR_TO_ROTATE`"
+OWNER="`stat -c '%U' $DIR_TO_ROTATE`"
 NEW_DIR_MONTHLY=$DIR_TO_ROTATE/`date +%Y%m`
 NEW_DIR_WEEKLY_DAILY=$DIR_TO_ROTATE/`date +%Y%m%d`
 echo "$1"

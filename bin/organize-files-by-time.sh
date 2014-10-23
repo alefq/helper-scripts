@@ -1,6 +1,8 @@
 #!/bin/bash
 # put this in your logrotate conf 
 # whether you want the files to be organized by day, week or month
+# Suggestion: use it from anacrond with this line: 
+# @monthly 	15	organize-files	/opt/helper-scripts/bin/organize-files-by-time.sh m /path/to/dir
 #
 if [ $# - ne 2 ]; then
 	echo "Usage: $0 [d|w|m] [DIR TO ORGANIZE]"

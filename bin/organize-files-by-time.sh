@@ -2,8 +2,20 @@
 # put this in your logrotate conf 
 # whether you want the files to be organized by day, week or month
 # Suggestion: use it from anacrond with this line: 
+#
 # @monthly 	15	organize-files	/opt/helper-scripts/bin/organize-files-by-time.sh m /path/to/dir
 #
+#
+# Result after a few months you'll get a dir like this organized:
+#
+# drwxr-xr-x 2 user user    4096 oct 19 13:24 201409
+# drwxr-xr-x 2 user user   16384 oct 19 13:24 201408
+# drwxr-xr-x 2 user user   12288 oct 19 23:15 201410
+# -rw-r----- 1 user user   22123 oct 20 17:40 JMeterWebSocketSampler-1.0.2-SNAPSHOT.jar
+#
+# Each month, a new directory will be created and all files moved to that directory
+# 
+
 if [ $# - ne 2 ]; then
 	echo "Usage: $0 [d|w|m] [DIR TO ORGANIZE]"
 	echo "d: daily, w: weekly, m: monthly"

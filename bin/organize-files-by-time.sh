@@ -16,7 +16,7 @@
 # Each month, a new directory will be created and all files moved to that directory
 # 
 
-if [ $# - ne 2 ]; then
+if [ $# -ne 2 ]; then
 	echo "Usage: $0 [d|w|m] [DIR TO ORGANIZE]"
 	echo "d: daily, w: weekly, m: monthly"
 	exit 1

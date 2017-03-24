@@ -27,6 +27,7 @@ $ chmod +x *.sh
 ```
 	$ ./populate-basic-desktop-commands.sh
 ```
+* [List of generated commands](https://github.com/alefq/helper-scripts/blob/master/bin/populate-basic-desktop-commands.sh#L15)
 
 * Generate setup for your user environement
 
@@ -39,14 +40,10 @@ $ chmod +x *.sh
 	$HS_HOME/bin/backup-historial.sh > $HOME/.historial-1000.log & 
 	# END - helper-scripts stuff
 ```
-
-* Add above lines to the end of your 
-* [List of generated commands](https://github.com/alefq/helper-scripts/blob/master/bin/populate-basic-desktop-commands.sh#L15)
-
+* Add above lines to the end of your:
 ```
 $HOME/.bashrc
 ```
-
 * Restart your user session
 * Enjoy your "endless" bash history  and some other usefull scripts :)
 

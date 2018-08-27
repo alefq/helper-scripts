@@ -18,7 +18,7 @@
 
 if [ $# -ne 2 ]; then
 	echo "Usage: $0 [d|w|m] [DIR TO ORGANIZE]"
-	echo "d: daily, w: weekly, m: monthly"
+	echo "h: hourly, d: daily, w: weekly, m: monthly"
 	exit 1
 fi
 
@@ -26,6 +26,7 @@ DIR_TO_ROTATE=$2
 OWNER="`stat -c '%U' $DIR_TO_ROTATE`"
 NEW_DIR_MONTHLY=$DIR_TO_ROTATE/`date +%Y%m`
 NEW_DIR_WEEKLY_DAILY=$DIR_TO_ROTATE/`date +%Y%m%d`
+NEW_DIR_WEEKLY_DAILY_HOURLY=$DIR_TO_ROTATE/`date +%Y%m%d-%H_%M`
 echo "$1"
 case "$1" in
 	d|D|daily)
@@ -36,6 +37,9 @@ case "$1" in
 	;;
 	m|M|montlhy)
 	NEW_DIR=$NEW_DIR_MONTHLY
+	;;
+	h|H|hourly)
+	NEW_DIR=$NEW_DIR_WEEKLY_DAILY_HOURLY
 	;;
 	*)
 	#default to daily

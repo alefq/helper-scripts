@@ -1,15 +1,16 @@
-#/bin/bash
-STAMP="`date +%F.%s`"
-DATE_TIME="`date +%F_%H:%M`"
-# get from http://weather.noaa.gov
-CITY_CODE=SGAS #Asuncion
+#!/bin/bash
+#
+# requires wethr from snap store and pango1.0-tools
+#
+# running from crontab
+export DISPLAY=:0
+WFILE=/tmp/.weather-info-$UID
+DEBUG=0
 
-if [ ! -d /tmp/.weather-$UID ]; then
-	mkdir -p /tmp/.weather-$UID
+if [ $DEBUG -eq 0 ]; then
+	/snap/bin/wethr > $WFILE 2>/dev/null
+else 
+	/snap/bin/wethr > $WFILE 
 fi
-WEATHER=/tmp/.weather-$UID/weather-$STAMP.log
-curl -s http://weather.noaa.gov/pub/data/observations/metar/stations/${CITY_CODE}.TXT  > $WEATHER
-# I can't finid a pattern on noaa output
-# ad-hoc temperature parsing
-tail -1 $WEATHER | awk -F/ '{print $1} ' | awk '{print $NF} '
+pango-view --background=#ffffff  --font=onot -qo /tmp/weather-$UID.jpg $WFILE
 

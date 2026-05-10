@@ -5,24 +5,25 @@
 # afeltes@sodep.com.py
 #
 
-STAMP="`date +%F`"
-FLAG="/tmp/$(date +%Y-%m-%d-%H-%M)"
-echo $FLAG
+STAMP="$(date +%F)"
 DIR="$HOME/sysadmin/historicos-bash"
-if [ -f ${FLAG}.tmp ]; then
-	logger "HISTORY ${FLAG}"
-	exit 0
-else 
-	if [ ! -d $DIR ]; then
-		mkdir -pv $DIR
-	fi
-	touch ${FLAG}.tmp
-	cp -vf $HOME/.bash_history $DIR/history-${STAMP}
-	cd $DIR
-	echo "" > /tmp/history-global-$UID
-	chmod -v 0600 /tmp/history-global-$UID
-	find -maxdepth 1 -type f -print0 | xargs -0 cat | strings | sort | uniq   >> /tmp/history-global-$UID
-	mv -vf /tmp/history-global-$UID .
-	rm -v ${FLAG}.tmp
+BITACORA="$DIR/.ultimo-backup"
+
+if [ ! -d "$DIR" ]; then
+	mkdir -pv "$DIR"
 fi
+
+if [ -f "$BITACORA" ] && [ "$(cat "$BITACORA")" = "$STAMP" ]; then
+	logger "HISTORY backup ya realizado hoy $STAMP, omitiendo."
+	exit 0
+fi
+
+cp -vf "$HOME/.bash_history" "$DIR/history-${STAMP}"
+cd "$DIR"
+echo "" > /tmp/history-global-$UID
+chmod -v 0600 /tmp/history-global-$UID
+find -maxdepth 1 -type f -not -name '.ultimo-backup' -print0 | xargs -0 cat | strings | sort | uniq >> /tmp/history-global-$UID
+mv -vf /tmp/history-global-$UID .
+echo "$STAMP" > "$BITACORA"
+logger "HISTORY backup completado: $STAMP"
 
